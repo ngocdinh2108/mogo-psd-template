@@ -1,0 +1,104 @@
+// width, height
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// absolute center
+@mixin absoluteCenter($axis: "both") {
+  position: absolute;
+  @if $axis == "xAxis" {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $axis == "yAxis" {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @if $axis == "both" {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Chiếm chọn thể tích của cha
+@mixin absoluteFull() {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Reponsive max width
+@mixin maxWidth($breakPoint) {
+  @media screen and (max-width: $breakPoint) {
+    @content;
+  }
+}
+
+// Reponsive max width
+@mixin minWidth($breakPoint) {
+  @media screen and (min-width: $breakPoint) {
+    @content;
+  }
+}
+
+// Hide scroll
+@mixin hideScroll() {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Cho hiển thị n dòng text với n là tham số truyền vào
+@mixin limitLine($number) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $number; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+// Hiệu ứng hover vào item dùng chung
+@mixin hoverEffect(
+  $classHover,
+  $heightClassHover,
+  $classEffect,
+  $isTransform: "true"
+) {
+  #{$classHover} {
+    height: $heightClassHover;
+    position: relative;
+    z-index: 1;
+    @if $isTransform == "true" {
+      & > * {
+        transition: transform 0.25s linear;
+      }
+      &::before {
+        content: "";
+        @include absoluteFull();
+        background-color: $primary-color;
+        z-index: -1;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      @if $isTransform == "true" {
+        & > * {
+          transform: translate(-1rem, -1rem);
+        }
+        // &::before {
+        //   transform: translate(1rem, 1rem);
+        // }
+      }
+      #{$classEffect} {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}

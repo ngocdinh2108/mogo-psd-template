@@ -1,0 +1,27 @@
+section.team 
+    .container 
+        +blockHeader({
+            caption: "Who we are",
+            title: "Meet our team",
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex dolores eum debitis temporibus exercitationem architecto dolore voluptatibus fugiat voluptate ratione cupiditate vero quasi reprehenderit, quod mollitia ipsam neque! A, tenetur."
+        })
+        ul.team-list 
+            +teamItem({
+                src: "../../assets/images/img-team-1.jpg",
+                name: "Jeep Wrangler",
+                brand: "Jeep"
+            })
+            +teamItem({
+                src: "../../assets/images/img-team-2.jpg",
+                name: "Ford f-150",
+                brand: "Ford"
+            })
+            +teamItem({
+                src: "../../assets/images/img-team-3.jpg",
+                name: "Ferrari SF90 Stradale",
+                brand: "Ferrari"
+            })
+
+section.brand 
+    .container 
+        img.brand-img(src="../../assets/images/img-brands.png")

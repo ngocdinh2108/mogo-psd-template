@@ -1,0 +1,124 @@
+//-------- Mixin cho phần header --------------
+
+//- Tạo mixin cho menu header
+mixin menuLink(data)
+    li.header-menu-item    
+        a.header-menu-link(href = data.href)= data.title
+
+//- Tạo mixin cho header bottom
+mixin headerBottomItem(data)
+    .header-bottom-item(class= data.isActive)
+        span.header-bottom-number= data.number
+        span.header-bottom-text= data.text 
+
+//---------- Mixin cho block header dùng chung --------------
+mixin blockHeader(data)
+    .block-header 
+        h3.block-header-caption= data.caption 
+        h2.block-header-title= data.title 
+        if data.desc 
+            p.block-header-desc= data.desc
+
+//- Mixin block item    
+mixin aboutItem(data)
+    li.about-item 
+        img.about-img(src= data.src)
+        .about-content 
+            i.far.fa-plus-square.about-icon 
+            span.about-text See more
+
+//- Mixin item number (block number)
+mixin numberItem(data)
+    li.number-item 
+        h4.number-item-count= data.count
+        p.number-item-text= data.text
+
+//- Mixin cho service item
+mixin serviceItem(data)
+    li.service-item     
+        i.service-icon(class= data.classIcon)
+        .service-content
+            h4.service-caption= data.caption 
+            p.service-desc= data.desc
+
+//- Mixin cho wedo item
+mixin wedoItem(data)
+    .wedo-item
+        .wedo-item-header
+            i.wedo-icon-left.wedo-icon(class= data.classIcon)
+            h4.wedo-title= data.title
+            if data.active
+                i.fas.fa-chevron-up.wedo-icon-right.wedo-icon  
+            else 
+                i.fas.fa-chevron-down.wedo-icon-right.wedo-icon
+        if data.text
+            .wedo-item-body(class= data.active)
+                p.wedo-item-text= data.text
+
+//- Mixin cho team item
+mixin teamItem(data)
+    li.team-item
+        .team-item-wrap
+            img.team-item-img(src= data.src)
+            ul.team-item-social 
+                .team-item-wrapIcon 
+                    i.team-item-icon.fab.fa-facebook-f
+                .team-item-wrapIcon 
+                    i.team-item-icon.fab.fa-twitter
+                .team-item-wrapIcon 
+                    i.team-item-icon.fab.fa-pinterest-p
+                .team-item-wrapIcon 
+                    i.team-item-icon.fab.fa-instagram
+        .team-item-info 
+            h4.team-item-name= data.name
+            span.team-item-brand= data.brand
+
+//- Mixin cho work item
+mixin workItem(data)
+    .work-item 
+        img(src= data.src, alt="").work-img
+        .work-content 
+            i.far.fa-images.work-content-icon
+            h4.work-content-title Creatively designed
+            span.work-content-text Lorem ipsum dolor sit amet!
+
+//- Mixin cho people item
+mixin peopleItem(data)
+    li.people-item
+        img.people-item-avatar(src= data.src)
+        .people-item-info 
+            h4.people-item-name= data.name
+            span.people-item-job= data.job
+            p.people-item-desc= data.desc
+
+//- Mixin cho story item
+mixin storyItem(data)
+    li.story-item
+        .story-item-media
+            img.story-item-img(src= data.src)
+            .story-item-date
+                p.story-item-day= data.day
+                p.story-item-month= data.month
+        h4.story-item-title= data.title
+        .story-item-desc
+            p.story-item-desc-inner= data.desc
+        .story-meta 
+            .story-meta-item 
+                i.far.fa-eye.story-meta-icon 
+                span.story-meta-number= data.sumOfViews
+            .story-meta-item 
+                i.far.fa-comment-dots.story-meta-icon 
+                span.story-meta-number= data.sumOfComments
+
+//- Mixin quote item
+mixin quoteItem(data)
+    .quote-content 
+        if data.src
+            img.quote-content-img(src= data.src)
+        else 
+            .quote-icon-wrap
+                i.quote-content-icon(class= data.classIcon)
+        .quote-info
+            .quote-desc= data.desc
+            .quote-author= data.author
+

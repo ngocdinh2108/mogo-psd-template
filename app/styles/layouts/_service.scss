@@ -1,0 +1,62 @@
+.service-container {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.service {
+  background-color: $white-color;
+  padding: 11rem 0 12rem 0;
+  &-list {
+    display: flex;
+    margin-top: 5rem;
+    justify-content: space-between;
+    &:first-child {
+      margin-top: 7rem;
+      padding-bottom: 5.5rem;
+      margin-bottom: 5rem;
+      border-bottom: 1px solid $dark-gray-color;
+    }
+  }
+  &-item {
+    width: calc(calc(100% / 3) - calc(14rem / 3));
+    display: flex;
+    align-items: flex-start;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &-icon {
+    color: $primary-color;
+    font-size: 3.4rem;
+    margin-right: 3rem;
+    width: 3.4rem;
+  }
+  &-caption {
+    color: $title-color;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1.8rem;
+  }
+  &-desc {
+    color: $text-color;
+    line-height: 1.6;
+  }
+  @include maxWidth(1023px) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    &-container {
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+    &-list {
+      display: block;
+      &:first-child {
+        padding-bottom: unset;
+      }
+    }
+    &-item {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+  }
+}

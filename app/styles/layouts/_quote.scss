@@ -1,0 +1,131 @@
+.quote {
+  background-color: $gray-color;
+  padding: 7rem 0;
+  &-container {
+    // display: flex;
+    // align-items: center;
+    position: relative;
+    padding: 0 6rem;
+  }
+  &-icon {
+    font-size: 3rem;
+    color: $dark-gray-color;
+    padding: 2.5rem;
+    &-wrap {
+      @include size(15rem);
+      border: 1px solid $primary-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 5rem;
+      margin-right: 6rem;
+      flex-shrink: 0;
+    }
+  }
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    &-icon {
+      color: $primary-color;
+      font-size: 6rem;
+    }
+    &-img {
+      @include size(21rem);
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 3.5rem;
+    }
+  }
+  &-info {
+    margin-right: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &-desc {
+    margin-bottom: 3rem;
+    font-family: $secondary-font;
+    font-size: 2.4rem;
+    font-style: italic;
+    color: $text-color;
+    line-height: 1.4;
+    @include limitLine(3);
+  }
+  &-author {
+    font-family: $third-font;
+    font-size: 2.4rem;
+    position: relative;
+    padding-left: 7rem;
+    text-transform: capitalize;
+    &::before {
+      content: "";
+      @include size(6rem, 0.4rem);
+      background-color: $secondary-color;
+      @include absoluteCenter("yAxis");
+      left: 0;
+    }
+  }
+  @include maxWidth(1023px) {
+    padding: 4rem 0;
+    &-container {
+      padding: 0;
+    }
+    &-icon {
+      display: none;
+      &-wrap {
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        @include size(8rem, 8rem);
+      }
+    }
+    &-info {
+      margin-right: unset;
+    }
+    &-content {
+      display: unset;
+      &-icon {
+        font-size: 4rem;
+      }
+      &-img {
+        margin: 0 auto 2.4rem auto;
+      }
+    }
+    &-desc {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      display: unset;
+      text-align: center;
+    }
+    &-author {
+      margin: 0 auto;
+      padding-left: unset;
+      font-size: 2rem;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      &::before {
+        @include absoluteCenter("xAxis");
+        top: 0;
+      }
+    }
+  }
+}
+
+.slick-initialized .slick-slide {
+  display: flex;
+  align-items: center;
+  @include maxWidth(1023px) {
+    display: block;
+  }
+}
+
+.slick-arrow {
+  background-color: transparent;
+  border: 0;
+  @include absoluteCenter("yAxis");
+}
+.slick-next {
+  right: 0;
+}
+.slick-prev {
+  left: 0;
+}

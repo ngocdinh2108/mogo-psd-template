@@ -1,0 +1,97 @@
+.about {
+  padding-top: 9.3rem;
+  padding-bottom: 11rem;
+  background-color: $white-color;
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3rem;
+  }
+
+  // &-item {
+  //   height: 25rem;
+  //   position: relative;
+  //   transition: all 0.15s linear;
+  //   &::before {
+  //     content: "";
+  //     @include absoluteFull();
+  //     background-color: $primary-color;
+  //     z-index: -1;
+  //     transition: all 0.15s linear;
+  //   }
+  //   &:hover {
+  //     cursor: pointer;
+  //     transform: translate(-1rem, -1rem);
+  //     &::before {
+  //       transform: translate(1rem, 1rem);
+  //     }
+  //     .about-content {
+  //       opacity: 1;
+  //       visibility: visible;
+  //     }
+  //   }
+  // }
+
+  @include hoverEffect(".about-item", 25rem, ".about-content");
+
+  &-img {
+    @include size(100%, 100%);
+    object-fit: cover;
+  }
+  &-content {
+    opacity: 0;
+    visibility: hidden;
+    @include size(100%, 100%);
+    background-image: linear-gradient(
+      to bottom,
+      rgba($secondary-color, 0.7),
+      rgba($third-color, 0.7)
+    );
+    @include absoluteFull();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 0.25s linear;
+  }
+  &-icon,
+  &-text {
+    color: $white-color;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+  &-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  &-icon {
+    font-size: 2.5rem;
+  }
+  @include maxWidth(1023px) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    &-item {
+      height: 16rem;
+    }
+    &-text {
+      font-size: 1.4rem;
+    }
+  }
+  @include maxWidth(767px) {
+    &-list {
+      grid-template-columns: unset;
+      grid-auto-columns: 80%;
+      grid-auto-flow: column;
+      display: grid;
+      overflow-x: auto;
+      @include hideScroll();
+      scroll-snap-type: x mandatory;
+      scroll-snap-stop: always;
+      padding: 1rem 0 0 1rem;
+    }
+    &-item {
+      height: 25rem;
+      scroll-snap-align: center;
+    }
+  }
+}

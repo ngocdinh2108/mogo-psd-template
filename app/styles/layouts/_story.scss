@@ -1,0 +1,153 @@
+.story {
+  padding-top: 10rem;
+  padding-bottom: 11rem;
+  &-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-item {
+    width: calc(calc(100% / 3) - 2rem);
+    display: flex;
+    flex-direction: column;
+    &:hover {
+      cursor: pointer;
+    }
+    &-media {
+      height: 25rem;
+      position: relative;
+    }
+    &-img {
+      @include size(100%);
+      object-fit: cover;
+    }
+    &-date {
+      text-align: center;
+      position: absolute;
+      left: -1rem;
+      top: 95%;
+      transform: translateY(-100%);
+      color: $white-color;
+      background-color: $primary-color;
+      padding: 1rem 1.5rem;
+    }
+    &-day {
+      font-weight: bold;
+      font-size: 2.5rem;
+    }
+    &-month {
+      font-style: italic;
+    }
+    &-title {
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 2rem 0;
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+    &-desc {
+      line-height: 1.4;
+      font-size: 1.5rem;
+      font-family: $secondary-font;
+      color: $text-color;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "";
+        @include size(100%, 0.1rem);
+        background-color: $dark-gray-color;
+        left: 0;
+        bottom: 0;
+      }
+      &-inner {
+        @include limitLine(4);
+      }
+    }
+  }
+  &-meta {
+    display: flex;
+    &-item {
+      margin-right: 2rem;
+      font-style: italic;
+    }
+    &-icon {
+      margin-right: 1rem;
+      color: $primary-color;
+    }
+    &-number {
+      margin-right: 1rem;
+      color: $dark-gray-color;
+    }
+  }
+  @include maxWidth(1023px) {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    &-list {
+      display: block;
+    }
+    &-item {
+      width: 100%;
+      margin-bottom: 4rem;
+      &-media {
+        height: 40rem;
+      }
+    }
+  }
+  @include maxWidth(1023px) {
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    &-item {
+      margin-bottom: 4rem;
+      &-media {
+        height: 30rem;
+      }
+    }
+  }
+}
+
+.map {
+  cursor: pointer;
+  color: $secondary-color;
+  padding: 5.5rem 0;
+  background-image: linear-gradient(
+      to bottom,
+      rgba($white-color, 0.7),
+      rgba($white-color, 0.7)
+    ),
+    url(../../assets/images/img-map.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &-container {
+    text-align: center;
+  }
+  &-icon {
+    font-size: 2.5rem;
+  }
+  &-text {
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 2.2rem;
+    position: relative;
+    &::before {
+      content: "";
+      @include size(6rem, 0.4rem);
+      @include absoluteCenter("xAxis");
+      bottom: 0;
+      background-color: $secondary-color;
+    }
+  }
+  @include maxWidth(1023px) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    &-icon {
+      font-size: 1.6rem;
+    }
+    &-text {
+      font-size: 1.6rem;
+      padding: 1.6rem;
+    }
+  }
+}

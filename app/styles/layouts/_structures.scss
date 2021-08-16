@@ -1,0 +1,52 @@
+.wrapper {
+  max-width: $wrapper;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: $container + 30px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+// Css cho phần block header (dùng lại nhiều lần)
+.block-header {
+  text-align: center;
+  max-width: 96rem;
+  margin-left: auto;
+  margin-right: auto;
+  &-caption {
+    font-size: 2.4rem;
+    font-family: $third-font;
+  }
+  &-title {
+    padding: 2.2rem 0 4.2rem;
+    margin-bottom: 5.2rem;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    &::before {
+      content: "";
+      @include absoluteCenter("xAxis");
+      bottom: 0;
+      background-color: $secondary-color;
+      @include size(6.5rem, 0.4rem);
+    }
+  }
+  &-desc {
+    margin-bottom: 10rem;
+    color: $text-color;
+    line-height: 2;
+  }
+  @include maxWidth(1023px) {
+    &-desc {
+      margin-bottom: 5rem;
+    }
+  }
+  @include maxWidth(767px) {
+    &-title {
+      font-size: 2.5rem;
+    }
+  }
+}

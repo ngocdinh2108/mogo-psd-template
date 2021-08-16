@@ -1,0 +1,103 @@
+.work {
+  padding-top: 11rem;
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 39rem);
+    grid-template-areas:
+      "h1 h2 h5 h6"
+      "h3 h4 h5 h7";
+  }
+  @include hoverEffect(".work-item", 39rem, ".work-content", "false");
+  &-item:first-child {
+    grid-area: h5;
+    height: unset;
+  }
+
+  &-img {
+    @include size(100%);
+    object-fit: cover;
+  }
+  &-content {
+    opacity: 0;
+    visibility: hidden;
+    @include size(100%, 100%);
+    background-image: linear-gradient(
+      to bottom,
+      rgba($secondary-color, 0.7),
+      rgba($third-color, 0.7)
+    );
+    @include absoluteFull();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 0.25s linear;
+    color: $white-color;
+    &-icon {
+      font-size: 2.5rem;
+    }
+    &-title {
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 1.6rem 0;
+    }
+    &-text {
+      font-family: $secondary-font;
+      font-style: italic;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+  }
+  @include maxWidth(1600px) {
+    &-list {
+      grid-template-rows: repeat(2, 30rem);
+      @include hoverEffect(".work-item", 30rem, ".work-content", "false");
+    }
+    &-item:first-child {
+      height: unset;
+    }
+  }
+  @include maxWidth(1023px) {
+    padding-top: 8rem;
+    &-list {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 30rem);
+      grid-template-areas:
+        "h1 h2"
+        "h3 h4"
+        "h5 h6"
+        "h5 h7";
+      @include hoverEffect(".work-item", 30rem, ".work-content", "false");
+    }
+    &-item:first-child {
+      height: unset;
+    }
+  }
+  @include maxWidth(767px) {
+    padding-top: 6rem;
+    &-list {
+      padding: 0 1.5rem;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(7, auto);
+      grid-template-areas:
+        "h1"
+        "h2"
+        "h3"
+        "h4"
+        "h5"
+        "h6"
+        "h7";
+      @include hoverEffect(".work-item", auto, ".work-content", "false");
+    }
+    &-content-icon {
+      font-size: 2rem;
+    }
+    &-content-title {
+      font-size: 1rem;
+    }
+    &-content-text {
+      font-size: 1rem;
+    }
+  }
+}

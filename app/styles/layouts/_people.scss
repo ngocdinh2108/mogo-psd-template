@@ -1,0 +1,78 @@
+.people {
+  min-height: 83rem;
+  padding-top: 11rem;
+  padding-bottom: 5rem;
+  background-image: linear-gradient(
+      to bottom,
+      rgba($white-color, 0.7),
+      rgba($white-color, 0.7)
+    ),
+    url(../../assets/images/img-people-bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &-list {
+    margin-top: 10rem;
+    display: flex;
+    padding: 0 4rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &-item {
+    width: calc(50% - 4.5rem);
+    display: flex;
+    margin-bottom: 7rem;
+    &-avatar {
+      @include size(11rem);
+      object-fit: cover;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-right: 3rem;
+    }
+    &-name {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    &-job {
+      display: inline-block;
+      font-size: 1.5rem;
+      color: #494949;
+      font-family: $secondary-font;
+      font-style: italic;
+      padding: 2rem 0;
+      margin-bottom: 2.5rem;
+      position: relative;
+      &::before {
+        content: "";
+        @include size(6rem, 0.4rem);
+        background-color: $secondary-color;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
+    &-desc {
+      font-size: 1.5rem;
+      color: #494949;
+      font-family: $secondary-font;
+      line-height: 1.6;
+    }
+  }
+  @include maxWidth(1023px) {
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+  }
+  @include maxWidth(767px) {
+    padding-top: 6rem;
+    &-list {
+      display: block;
+      padding-left: unset;
+      padding-right: unset;
+      margin-top: 8rem;
+    }
+    &-item {
+      width: 100%;
+      margin-bottom: 4rem;
+    }
+  }
+}

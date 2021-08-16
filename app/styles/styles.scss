@@ -1,0 +1,22 @@
+// file viết mixin dùng chung cho toàn bộ scss
+@import "helpers/mixin";
+// file khai báo các biến thường dùng
+@import "helpers/variables";
+// file khai báo các class dùng chung
+@import "layouts/structures";
+@import "bases/typography";
+@import "helpers/globals";
+
+// file khai báo scss các component
+@import "layouts/header";
+@import "layouts/about";
+@import "layouts/number";
+@import "layouts/service";
+@import "layouts/device";
+@import "layouts/wedo";
+@import "layouts/quote";
+@import "layouts/team";
+@import "layouts/work";
+@import "layouts/people";
+@import "layouts/story";
+@import "layouts/footer";
