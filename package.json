@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "node-sass": "^4.7.2"
+    "node-sass": "^4.14.1"
   },
   "scripts": {
     "scss": "node-sass --watch app/styles -o public/styles"
